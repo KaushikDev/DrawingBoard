@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,68 +6,127 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"/>
     <title>DrawingBoard</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
 	
 	  <style>
 		body { padding: 0; margin: 0; background:black;}
-    	canvas { background: white ; display: block; margin: 0 auto; }
+    	canvas { background: black ; display: block; margin: 0 auto; }
+		
     </style>
 </head>
 <body>
 
 <canvas id="canvas"></canvas>
-<div style="text-align: center;">
-<button style="background-color:transparent;border-color:transparent;color:violet;font-size:30px;" onclick="colorPicker('violet')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:indigo;font-size:30px;" onclick="colorPicker('indigo')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:blue;font-size:30px;" onclick="colorPicker('blue')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:green;font-size:30px;" onclick="colorPicker('green')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:yellow;font-size:30px;" onclick="colorPicker('yellow')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:orange;font-size:30px;" onclick="colorPicker('orange')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:red;font-size:30px;" onclick="colorPicker('red')"><i class="fa fa-circle"></i></button>
-<br>
-<button style="background-color:transparent;border-color:transparent;color:violet;font-size:30px;" onclick="colorPicker('violet')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:indigo;font-size:30px;" onclick="colorPicker('indigo')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:blue;font-size:30px;" onclick="colorPicker('blue')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:green;font-size:30px;" onclick="colorPicker('green')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:yellow;font-size:30px;" onclick="colorPicker('yellow')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:orange;font-size:30px;" onclick="colorPicker('orange')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:red;font-size:30px;" onclick="colorPicker('red')"><i class="fa fa-circle"></i></button>
-<br>
-<button style="background-color:transparent;border-color:transparent;color:violet;font-size:30px;" onclick="colorPicker('violet')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:indigo;font-size:30px;" onclick="colorPicker('indigo')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:blue;font-size:30px;" onclick="colorPicker('blue')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:green;font-size:30px;" onclick="colorPicker('green')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:yellow;font-size:30px;" onclick="colorPicker('yellow')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:orange;font-size:30px;" onclick="colorPicker('orange')"><i class="fa fa-circle"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:red;font-size:30px;" onclick="colorPicker('red')"><i class="fa fa-circle"></i></button>
-<br>
-<button style="background-color:transparent;border-color:transparent;color:white" onclick="brushPicker(5)"><i class="fa fa-paint-brush"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:white" onclick="brushPicker(10)"><i class="fa fa-paint-brush fa-2x"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:white" onclick="brushPicker(15)"><i class="fa fa-paint-brush fa-3x"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:white" onclick="brushPicker(20)"><i class="fa fa-paint-brush fa-4x"></i></button>
+<div class="container">
+<div class="row text-center">
+<div class="col-xs-3">
+<button class="btn btn-sm"  style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto%;">Clear</button>
 </div>
 
-
-
-
-<div style="text-align: center;">
-<p style="color:white"><i class="fa fa-copyright" ></i>KaushikCodeArts : App by Piyush Kaushik</p>
+<div class="col-xs-6">
+<button class="btn btn-sm"  href="" data-toggle="modal" data-target="#selection" style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:100%;">Brush Preferences</button>
 </div>
 
-       <div style="text-align: center;word-spacing: 30px;">
-	 <a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/DrawingBoard" target="_blank"><i class="fa fa-facebook" style="color:white;font-size:30px;"></i></a>
+<div class="col-xs-3">
+<button class="btn btn-sm"  style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;">Save</button>
+</div>
+</div>
+
+<div class="row text-center">
+<div class="col-xs-12">
+<p style="color:white"><i class="fa fa-copyright"></i>KaushikCodeArts : App by Piyush Kaushik</p>
+</div>
+</div>
+
+<div class="row text-center">
+<div class="col-xs-12">
+<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/DrawingBoard" target="_blank"><i class="fa fa-facebook" style="color:white;font-size:20px;"></i></a>
 	 
-         <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="whatsapp://send?text=https://KaushikDev.github.io/DrawingBoard"><i class="fa fa-whatsapp" style="color:white;font-size:30px;"></i></a>
+         <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="whatsapp://send?text=https://KaushikDev.github.io/DrawingBoard"><i class="fa fa-whatsapp" style="color:white;font-size:20px;"></i></a>
 		 
-         <a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/DrawingBoard" target="_blank"><i class="fa fa-twitter"  style="color:white;font-size:30px;font-style:bold;"></i></a>
-               </div>
-        
+         <a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/DrawingBoard" target="_blank"><i class="fa fa-twitter"  style="color:white;font-size:20px;font-style:bold;"></i></a>
+</div>
+</div>
 
+</div>
+
+        
+<!-- Selection Modal -->
+  <div class="modal fade" id="selection" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Click any color and brush to choose : </h4>
+        </div>
+        <div class="modal-body">
+          
+		  
+		  <div style="text-align: center;">
+<p>Brush Colors : </p>
+<button style="background-color:transparent;border-color:transparent;color:violet;font-size:30px;" onclick="colorPicker('violet')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:indigo;font-size:30px;" onclick="colorPicker('indigo')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:blue;font-size:30px;" onclick="colorPicker('blue')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:LawnGreen;font-size:30px;" onclick="colorPicker('LawnGreen')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:yellow;font-size:30px;" onclick="colorPicker('yellow')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:orange;font-size:30px;" onclick="colorPicker('orange')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:red;font-size:30px;" onclick="colorPicker('red')"><i class="fa fa-circle"></i></button>
+<br>
+<button style="background-color:transparent;border-color:transparent;color:Purple;font-size:30px;" onclick="colorPicker('Purple')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:BlueViolet;font-size:30px;" onclick="colorPicker('BlueViolet')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:Darkblue;font-size:30px;" onclick="colorPicker('Darkblue')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:DarkGreen;font-size:30px;" onclick="colorPicker('DarkGreen')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:GoldenRod;font-size:30px;" onclick="colorPicker('GoldenRod')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:OrangeRed;font-size:30px;" onclick="colorPicker('OrangeRed')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:DarkRed;font-size:30px;" onclick="colorPicker('DarkRed')"><i class="fa fa-circle"></i></button>
+<br>
+<button style="background-color:transparent;border-color:transparent;color:LightPink;font-size:30px;" onclick="colorPicker('LightPink')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:MediumPurple;font-size:30px;" onclick="colorPicker('MediumPurple')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:LightSkyBlue;font-size:30px;" onclick="colorPicker('LightSkyBlue')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:LimeGreen;font-size:30px;" onclick="colorPicker('LimeGreen')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:Khaki;font-size:30px;" onclick="colorPicker('Khaki')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:DarkOrange;font-size:30px;" onclick="colorPicker('DarkOrange')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:Brown;font-size:30px;" onclick="colorPicker('Brown')"><i class="fa fa-circle"></i></button>
+<br>
+<button style="background-color:transparent;border-color:transparent;color:Black;font-size:30px;" onclick="colorPicker('Black')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:Magenta;font-size:30px;" onclick="colorPicker('Magenta')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:Turquoise;font-size:30px;" onclick="colorPicker('Turquoise')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:Lime;font-size:30px;" onclick="colorPicker('Lime')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:Gold;font-size:30px;" onclick="colorPicker('Gold')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:Coral;font-size:30px;" onclick="colorPicker('Coral')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:Gray;font-size:30px;" onclick="colorPicker('Gray')"><i class="fa fa-circle"></i></button>
+<br>
+<button style="background-color:transparent;border-color:black;border-radius:5px;color:Black;font-size:20px;" onclick="colorPicker('white')">Eraser</button>
+<br>
+<br>
+<p>Brush Sizes : </p>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(5)"><i class="fa fa-paint-brush"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(10)"><i class="fa fa-paint-brush fa-2x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(15)"><i class="fa fa-paint-brush fa-3x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(20)"><i class="fa fa-paint-brush fa-4x"></i></button>
+        </div>
+		</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> 
+      </div>
+      
+    </div>
+  </div>
 <script>
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
 	
 	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight* 0.75;
+	canvas.height = window.innerHeight* 0.80;
 	
 	var moveX = 1;
 	var moveY = 1;
