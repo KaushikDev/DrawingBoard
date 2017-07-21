@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"/>
+    <title>DrawingBoard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	  <style>
+		body { padding: 0; margin: 0; background:black;}
+    	canvas { background: white ; display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+<div style="text-align: center;">
+<button style="background-color:transparent;border-color:transparent;color:violet;font-size:30px;" onclick="colorPicker('violet')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:indigo;font-size:30px;" onclick="colorPicker('indigo')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:blue;font-size:30px;" onclick="colorPicker('blue')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:green;font-size:30px;" onclick="colorPicker('green')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:yellow;font-size:30px;" onclick="colorPicker('yellow')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:orange;font-size:30px;" onclick="colorPicker('orange')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:red;font-size:30px;" onclick="colorPicker('red')"><i class="fa fa-circle"></i></button>
+<br>
+<button style="background-color:transparent;border-color:transparent;color:violet;font-size:30px;" onclick="colorPicker('violet')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:indigo;font-size:30px;" onclick="colorPicker('indigo')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:blue;font-size:30px;" onclick="colorPicker('blue')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:green;font-size:30px;" onclick="colorPicker('green')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:yellow;font-size:30px;" onclick="colorPicker('yellow')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:orange;font-size:30px;" onclick="colorPicker('orange')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:red;font-size:30px;" onclick="colorPicker('red')"><i class="fa fa-circle"></i></button>
+<br>
+<button style="background-color:transparent;border-color:transparent;color:violet;font-size:30px;" onclick="colorPicker('violet')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:indigo;font-size:30px;" onclick="colorPicker('indigo')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:blue;font-size:30px;" onclick="colorPicker('blue')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:green;font-size:30px;" onclick="colorPicker('green')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:yellow;font-size:30px;" onclick="colorPicker('yellow')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:orange;font-size:30px;" onclick="colorPicker('orange')"><i class="fa fa-circle"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:red;font-size:30px;" onclick="colorPicker('red')"><i class="fa fa-circle"></i></button>
+<br>
+<button style="background-color:transparent;border-color:transparent;color:white" onclick="brushPicker(5)"><i class="fa fa-paint-brush"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:white" onclick="brushPicker(10)"><i class="fa fa-paint-brush fa-2x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:white" onclick="brushPicker(15)"><i class="fa fa-paint-brush fa-3x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:white" onclick="brushPicker(20)"><i class="fa fa-paint-brush fa-4x"></i></button>
+</div>
+
+
+
+
+<div style="text-align: center;">
+<p style="color:white"><i class="fa fa-copyright" ></i>KaushikCodeArts : App by Piyush Kaushik</p>
+</div>
+
+       <div style="text-align: center;word-spacing: 30px;">
+	 <a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/Arkanoid" target="_blank"><i class="fa fa-facebook" style="color:white;font-size:30px;"></i></a>
+	 
+         <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="whatsapp://send?text=https://KaushikDev.github.io/Arkanoid"><i class="fa fa-whatsapp" style="color:white;font-size:30px;"></i></a>
+		 
+         <a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/Arkanoid" target="_blank"><i class="fa fa-twitter"  style="color:white;font-size:30px;font-style:bold;"></i></a>
+               </div>
+        
+
+<script>
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight* 0.75;
+	
+	var moveX = 1;
+	var moveY = 1;
+	var currentX;
+	var currentY;
+	var flagMouseDown = false;
+	var flagTouchStart = false;
+	var brushColor = "black";
+	var brushSize = 5;
+	
+		function draw(currentX, currentY){
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			
+			ctx.rect(currentX, currentY, brushSize,brushSize);
+			ctx.fillStyle=brushColor;
+			ctx.fill();
+			}
+		
+		canvas.addEventListener("mouseup", mouseUpHandler, false);
+		canvas.addEventListener("mousemove", mouseMoveHandler, false);
+		canvas.addEventListener("mousedown", mouseDownHandler, false);
+		canvas.addEventListener("touchstart", touchStartHandler, false);
+		canvas.addEventListener("touchmove", touchMoveHandler, false);
+		canvas.addEventListener("touchend", touchEndHandler, false);
+		
+		function mouseDownHandler(e) {
+			
+			flagMouseDown = true;
+        }
+		
+		function mouseMoveHandler(e) {
+			if(flagMouseDown){
+			currentX = e.clientX;
+			currentY = e.clientY;
+			draw(currentX, currentY);
+			}
+		}
+		function mouseUpHandler(e) {
+            flagMouseDown = false;
+        }
+		
+		function touchStartHandler(e) {
+            flagTouchStart = true;
+        }
+		
+		function touchMoveHandler(e) {
+            if(flagTouchStart){
+			currentX = e.touches[0].screenX;
+			currentY = e.touches[0].screenY;
+			draw(currentX, currentY);
+			}
+        }
+		
+		function touchEndHandler(e) {
+            flagTouchStart = false;
+        }
+		
+		function colorPicker(color){
+			brushColor=color;
+			console.log("Brush Color is : "+color);
+		}
+		
+		function brushPicker(size){
+			brushSize=size;
+			console.log("Brush Size is : "+size);
+		}
+</script>
+
+</body>
+</html>
