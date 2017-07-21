@@ -159,8 +159,8 @@
 		
 		function mouseMoveHandler(e) {
 			if(flagMouseDown){
-			currentX = e.clientX;
-			currentY = e.clientY;
+			currentX = e.clientX - canvas.offsetLeft;
+			currentY = e.clientY - canvas.offsetTop;
 			draw(currentX, currentY);
 			}
 		}
@@ -174,8 +174,8 @@
 		
 		function touchMoveHandler(e) {
             if(flagTouchStart){
-			currentX = e.touches[0].screenX;
-			currentY = e.touches[0].screenY;
+			currentX = e.touches[0].screenX - canvas.offsetLeft;
+			currentY = e.touches[0].screenY  - canvas.offsetTop;
 			draw(currentX, currentY);
 			}
         }
