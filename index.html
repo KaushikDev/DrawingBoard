@@ -25,7 +25,7 @@
 <div class="container">
 <div class="row text-center">
 <div class="col-xs-3">
-<button class="btn btn-sm"  style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto%;" onclick="clear()">Clear</button>
+<button class="btn btn-sm"  style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;" onclick="colorPicker('black')">Eraser</button>
 </div>
 
 <div class="col-xs-6">
@@ -136,18 +136,18 @@
 <button class="btn btn-sm" style="background-color:Gray;border-radius:50%;width:30px;height:30px;" onclick="colorPicker('Gray')"></button>
 
 <br>
-<br>
+<!--<br>
 <button class="btn btn-md" style="background-color:white;border-color:black;border-radius:5px;color:Black;font-size:20px;" onclick="colorPicker('white')">Eraser</button>
 
-<br>
+<br> -->
 <br>
 
 <p>Brush Sizes : </p>
-<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(1)"><i class="fa fa-paint-brush"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(2)"><i class="fa fa-paint-brush fa-2x"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(5)"><i class="fa fa-paint-brush fa-3x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(2)"><i class="fa fa-paint-brush"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(4)"><i class="fa fa-paint-brush fa-2x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(6)"><i class="fa fa-paint-brush fa-3x"></i></button>
 <button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(10)"><i class="fa fa-paint-brush fa-4x"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(10)"><i class="fa fa-paint-brush fa-5x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(15)"><i class="fa fa-paint-brush fa-5x"></i></button>
         </div>
 		</div>
         <div class="modal-footer">
@@ -173,10 +173,10 @@
 	var flagMouseDown = false;
 	var flagTouchStart = false;
 	var brushColor = "white";
-	var brushSize = 1;
+	var brushSize = 2;
 	
 		function draw(currentX, currentY){
-			//ctx.clearRect(0, 0, canvas.width, canvas.height);
+			
 			ctx.lineWidth = brushSize;
 			ctx.lineTo(currentX, currentY);
 			ctx.strokeStyle=brushColor;
@@ -241,7 +241,7 @@
 		
 		function clear(){
 			
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			//ctx.clearRect(0,0,canvas.width,canvas.height);
 			
 		}
 		
