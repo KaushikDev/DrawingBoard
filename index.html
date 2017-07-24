@@ -186,8 +186,8 @@
 		canvas.addEventListener("mouseup", mouseUpHandler, false);
 		canvas.addEventListener("mousemove", mouseMoveHandler, false);
 		canvas.addEventListener("mousedown", mouseDownHandler, false);
-		canvas.addEventListener("touchstart", touchStartHandler, {passive: true});
-		canvas.addEventListener("touchmove", touchMoveHandler, {passive: true});
+		canvas.addEventListener("touchstart", touchStartHandler, {passive: false});
+		canvas.addEventListener("touchmove", touchMoveHandler, {passive: false});
 		canvas.addEventListener("touchend", touchEndHandler, false);
 		
 		function mouseDownHandler(e) {
