@@ -33,7 +33,7 @@
 </div>
 
 <div class="col-xs-3">
-<a class="btn btn-sm btn-default" id="save" href="" style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;" onclick="save()" >Download</a>
+<a class="btn btn-sm btn-default" id="save" href="" style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;" onclick="save()" >Save</a>
 
 
 </div>
@@ -66,7 +66,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-		  <h4 class="modal-title">Click any color and brush to choose : </h4>
+		  <h4 class="modal-title">Click any color/brush to choose : </h4>
         </div>
         <div class="modal-body">
           
@@ -186,8 +186,8 @@
 		canvas.addEventListener("mouseup", mouseUpHandler, false);
 		canvas.addEventListener("mousemove", mouseMoveHandler, false);
 		canvas.addEventListener("mousedown", mouseDownHandler, false);
-		canvas.addEventListener("touchstart", touchStartHandler, false);
-		canvas.addEventListener("touchmove", touchMoveHandler, false);
+		canvas.addEventListener("touchstart", touchStartHandler, {passive: true});
+		canvas.addEventListener("touchmove", touchMoveHandler, {passive: true});
 		canvas.addEventListener("touchend", touchEndHandler, false);
 		
 		function mouseDownHandler(e) {
