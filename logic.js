@@ -3,7 +3,7 @@ var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
 	
 	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight * 0.80;
+	canvas.height = window.innerHeight * 0.85;
 	
 	var link = document.getElementById("save");
 	
