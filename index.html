@@ -13,7 +13,7 @@
 	  <style>
 		body { padding: 0; margin: 0; background:black;}
     	canvas { background: black ; display: block; margin: 0 auto; }
-		#selection {
+		#selection1,#selection2,#clear,#save {
 		border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;
 		}
     </style>
@@ -23,15 +23,24 @@
 <canvas id="canvas"></canvas>
 <div class="container">
 
-<div class="row text-center" id="selection">
+<div class="row text-center">
 
-<button class="btn btn-sm" onclick="colorPicker('black')">Eraser</button>
+<div class="col-xs-3">
+<button  id="selection1" class="btn btn-sm" onclick="colorPicker('black')">Eraser</button>
+</div>
 
-<button class="btn btn-sm" data-toggle="modal" data-target="#selection" style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:100%;">BrushPreference</button>
+<div class="col-xs-3">
+<button  id="selection2" class="btn btn-sm" data-toggle="modal" data-target="#selection" style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:100%;">BrushPreference</button>
+</div>
 
-<a class="btn btn-sm btn-default" id="save" onclick="clear()">Clear</a>
+<div class="col-xs-3">
+<a class="btn btn-sm btn-default" id="clear" onclick="clear()">Clear</a>
+</div>
 
+<div class="col-xs-3">
 <a class="btn btn-sm btn-default" id="save" onclick="save()">Save</a>
+</div>
+
 
 </div>
 
