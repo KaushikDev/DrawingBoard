@@ -13,34 +13,25 @@
 	  <style>
 		body { padding: 0; margin: 0; background:black;}
     	canvas { background: black ; display: block; margin: 0 auto; }
-		
+		#selection {
+		border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;
+		}
     </style>
 </head>
 <body>
 
 <canvas id="canvas"></canvas>
 <div class="container">
-<div class="row text-center">
-<div class="col-xs-2">
-<button class="btn btn-sm"  style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;" onclick="colorPicker('black')">Eraser</button>
-</div>
 
-<div class="col-xs-6">
-<button class="btn btn-sm"  href="" data-toggle="modal" data-target="#selection" style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:100%;">BrushPreference</button>
-</div>
+<div class="row text-center" id="selection">
 
-<div class="col-xs-2">
-<a class="btn btn-sm btn-default" id="save" href="" style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;" onclick="clear()">Clear</a>
-</div>
+<button class="btn btn-sm" onclick="colorPicker('black')">Eraser</button>
 
+<button class="btn btn-sm" data-toggle="modal" data-target="#selection" style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:100%;">BrushPreference</button>
 
-<div class="col-xs-2">
-<a class="btn btn-sm btn-default" id="save" href="" style="border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;" onclick="save()" >Save</a>
-</div>
+<a class="btn btn-sm btn-default" id="save" onclick="clear()">Clear</a>
 
-
-
-
+<a class="btn btn-sm btn-default" id="save" onclick="save()">Save</a>
 
 </div>
 
