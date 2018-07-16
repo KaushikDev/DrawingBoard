@@ -17,12 +17,11 @@
 	var brushSize = 2;
 	
 		function draw(currentX, currentY){
-			
 			ctx.lineWidth = brushSize;
 			ctx.lineTo(currentX, currentY);
 			ctx.strokeStyle=brushColor;
 			ctx.stroke();
-			}
+		}
 		
 		canvas.addEventListener("mouseup", mouseUpHandler, false);
 		canvas.addEventListener("mousemove", mouseMoveHandler, false);
@@ -75,13 +74,18 @@
 			console.log("Brush Color is : "+color);
 		}
 		
+		function eraserPicker(size){
+			brushSize=size;
+			brushColor='black';
+			console.log("Brush Size is : "+size);
+		}
+		
 		function brushPicker(size){
 			brushSize=size;
 			console.log("Brush Size is : "+size);
 		}
 		
 		function clean(){
-			
 			ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 			
 		}
