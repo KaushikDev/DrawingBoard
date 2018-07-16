@@ -80,7 +80,7 @@
 			console.log("Brush Size is : "+size);
 		}
 		
-		function clear(){
+		function clean(){
 			
 			ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 			
