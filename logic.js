@@ -80,8 +80,8 @@
 		}
 		
 		function eraserPicker(size){
-			brushSize=size;
-			brushColor='black';
+			brushSize = size;
+			brushColor = document.getElementById("canvas").style.backgroundColor;
 			console.log("Brush Size is : "+size);
 		}
 		
