@@ -32,7 +32,7 @@
 	
 	
 	 <!-- adding preferences -->
-	  <preference name="permissions" value="none"/>
+	  <preference name="permissions" value="true"/>
 	  <preference name="show-splash-screen-spinner" value="true" />          
 	  <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
   
