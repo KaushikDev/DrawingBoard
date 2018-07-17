@@ -13,7 +13,7 @@
 	  <style>
 		body { padding: 0; margin: 0; background:black;}
     	canvas { background: black ; display: block; margin: 0 auto; }
-		#selection1,#selection2,#clear,#save {
+		#eraserButton,#styleButton,#cleanButton,#saveButton {
 		border-radius:5px;margin-top:5px;margin-bottom:5px;width:auto;
 		}
     </style>
@@ -38,12 +38,11 @@
 </div>
 
 <div class="col-xs-3">
-<button class="btn btn-sm btn-default" id="saveButton" onclick="save()" style="background-color:transparent;border-color:transparent;"><i class="fa fa-floppy-o" style="color:white;font-size:20px;"></i></button>
+<a class="btn btn-sm btn-default" href="" id="saveButton" onclick="save()" style="background-color:transparent;border-color:transparent;"><i class="fa fa-floppy-o" style="color:white;font-size:20px;"></i></a>
 </div>
 
 
 </div>
-
 <hr>
 
 <div class="row text-center">
@@ -56,7 +55,7 @@
 </div>
 </div>
 	
-	<div class="row text-center">
+<div class="row text-center">
 <div class="col-xs-12">
 <a href="https://kaushikdev.github.io/portfolio/" target="_blank" style="color:white;"><i class="fa fa-copyright" aria-hidden="true" style="color:white;font-size:15px;"></i>KaushikCodeArts 2018</a>
 </div>
@@ -76,8 +75,7 @@
 		  <h4 class="modal-title">Click any color/brush to choose : </h4>
         </div>
         <div class="modal-body">
-          
-		  
+          		  
 		  <div style="text-align: center;">
 <p>Brush Colors : </p>
 <button class="btn btn-sm" style="background-color:violet;border-radius:50%;width:30px;height:30px;" onclick="colorPicker('violet')"></button>
@@ -143,12 +141,13 @@
 <button class="btn btn-sm" style="background-color:Gray;border-radius:50%;width:30px;height:30px;" onclick="colorPicker('Gray')"></button>
 
 <br>
-<!--<br>
-<button class="btn btn-md" style="background-color:white;border-color:black;border-radius:5px;color:Black;font-size:20px;" onclick="colorPicker('white')">Eraser</button>
-
-<br> -->
 <br>
-
+<p>Background Colors : </p>
+<button class="btn btn-sm" style="background-color:white;border-radius:50%;width:50px;height:50px;border-color:black;" onclick="backColorPicker('white')"></button>
+<button class="btn btn-sm" style="background-color:Gray;border-radius:50%;width:50px;height:50px;border-color:black;" onclick="backColorPicker('Gray')"></button>
+<button class="btn btn-sm" style="background-color:black;border-radius:50%;width:50px;height:50px;border-color:black;" onclick="backColorPicker('black')"></button>
+<br>
+<br>
 <p>Brush Sizes : </p>
 <button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(2)"><i class="fa fa-paint-brush"></i></button>
 <button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(4)"><i class="fa fa-paint-brush fa-2x"></i></button>
@@ -164,8 +163,7 @@
       
     </div>
   </div>
-  
-  
+    
 <!-- Eraser Modal -->
   <div class="modal fade" id="eraserPicker" role="dialog">
     <div class="modal-dialog">

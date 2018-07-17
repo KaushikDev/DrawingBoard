@@ -5,7 +5,7 @@
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight * 0.80;
 	
-	var link = document.getElementById("save");
+	var link = document.getElementById("saveButton");
 	
 	var moveX = 1;
 	var moveY = 1;
@@ -72,6 +72,11 @@
 		function colorPicker(color){
 			brushColor=color;
 			console.log("Brush Color is : "+color);
+		}
+		
+		function backColorPicker(color){
+			document.getElementById("canvas").style.backgroundColor = color;
+			console.log("Background Color is : "+color);
 		}
 		
 		function eraserPicker(size){
