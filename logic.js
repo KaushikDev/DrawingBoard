@@ -53,8 +53,7 @@
 		function touchStartHandler(e) {
             flagTouchStart = true;
 			ctx.beginPath();
-			
-        }
+		}
 		
 		function touchMoveHandler(e) {
             if(flagTouchStart){
@@ -105,25 +104,24 @@
         document.addEventListener("deviceready", onDeviceReady, false);
     }
  
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Register the event listener
-        document.addEventListener("backbutton", onBackKeyDown, false);
-    }
  
-    // Handle the back button
-    //
-    function onBackKeyDown() {
-    	navigator.notification.confirm(
-            'Are you sure you want to exit?!', // message
-             onConfirm,            // callback to invoke with index of button pressed
-            'Confirm exit',           // title
-            ['Yes','No']     // buttonLabels
-        );
-        function onConfirm(buttonIndex) {
-            if (buttonIndex == 1) {
-                navigator.app.exitApp();
-            }
-        }
+ document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady()
+    {
+        // Add event listener to the back button
+        document.addEventListener("backbutton", backButtonHandler, false);
     }
+    
+    function backButtonHandler(e )
+   {
+if( $("#homepageLanding").length > 0 )
+      {
+         // Code to exit app
+         navigator.app.exitApp();
+      }
+      else
+      {
+        // Code to navigate to the history action
+         navigator.app.backHistory();
+      }
+}
