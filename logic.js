@@ -3,7 +3,7 @@
 	var ctx = canvas.getContext("2d");
 	
 	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight * 0.80;
+	canvas.height = window.innerHeight * 0.75;
 	
 	var link = document.getElementById("saveButton");
 	
@@ -99,6 +99,31 @@
 			
 			link.href = canvas.toDataURL();
 			link.download = "KaushikCodeArt_image.png";
-			
-			
 		}
+		
+		 function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+ 
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Register the event listener
+        document.addEventListener("backbutton", onBackKeyDown, false);
+    }
+ 
+    // Handle the back button
+    //
+    function onBackKeyDown() {
+    	navigator.notification.confirm(
+            'Are you sure you want to exit?!', // message
+             onConfirm,            // callback to invoke with index of button pressed
+            'Confirm exit',           // title
+            ['Yes','No']     // buttonLabels
+        );
+        function onConfirm(buttonIndex) {
+            if (buttonIndex == 1) {
+                navigator.app.exitApp();
+            }
+        }
+    }
