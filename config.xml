@@ -26,6 +26,7 @@
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
     <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
     <plugin name="cordova-plugin-whitelist" version="1" />
+	<plugin name="cordova plugin add cordova-base64-image-saver" version="0.6.0" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 	<allow-intent href="whatsapp:*" />
@@ -36,9 +37,9 @@
 	  <preference name="permissions" value="none"/>
 
 	  <preference name="show-splash-screen-spinner" value="true" />  
-	  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+	<!--  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 	  <preference name="AndroidExtraFilesystems" value="sdcard,cache" />	
-      <preference name="permissions" value="android.permission.WRITE_EXTERNAL_STORAGE"/>
+      <preference name="permissions" value="android.permission.WRITE_EXTERNAL_STORAGE"/>  -->
 	  <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
   
 <!--   <icon src="ldpi.png" platform="android" qualifier="ldpi" /> -->
