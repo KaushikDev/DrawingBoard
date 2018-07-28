@@ -7,7 +7,7 @@
 
 <!-- versionCode is optional and Android only -->
 
-  <name>Draw</name>
+  <name>DrawingBoard</name>
   <platform name="ios" />
   <platform name="android" />
   <platform name="winphone" />
@@ -37,9 +37,9 @@
 	  <preference name="permissions" value="none"/>
 
 	  <preference name="show-splash-screen-spinner" value="true" />  
-	<!--  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+	 <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 	  <preference name="AndroidExtraFilesystems" value="sdcard,cache" />	
-      <preference name="permissions" value="android.permission.WRITE_EXTERNAL_STORAGE"/>  -->
+      <preference name="permissions" value="android.permission.WRITE_EXTERNAL_STORAGE"/>  
 	  <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
   
 <!--   <icon src="ldpi.png" platform="android" qualifier="ldpi" /> -->
