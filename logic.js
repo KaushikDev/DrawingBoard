@@ -3,7 +3,7 @@
 	var ctx = canvas.getContext("2d");
 	
 	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight * 0.95;
+	canvas.height = window.innerHeight * 0.90;
 	
 	var link = document.getElementById("saveButton");
 	
@@ -118,23 +118,4 @@
     }
  
  
- document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady()
-    {
-        // Add event listener to the back button
-        document.addEventListener("backbutton", backButtonHandler, false);
-    }
-    
-    function backButtonHandler(e )
-   {
-if( $("#homepageLanding").length > 0 )
-      {
-         // Code to exit app
-         navigator.app.exitApp();
-      }
-      else
-      {
-        // Code to navigate to the history action
-         navigator.app.backHistory();
-      }
-}
+ 
