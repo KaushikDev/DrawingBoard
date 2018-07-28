@@ -1,9 +1,9 @@
 
-    var canvas = document.getElementById("canvas");
+    var canvas = document.getElementById("cnv");
 	var ctx = canvas.getContext("2d");
 	
 	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight * 0.75;
+	canvas.height = window.innerHeight * 0.95;
 	
 	var link = document.getElementById("saveButton");
 	
@@ -15,6 +15,7 @@
 	var flagTouchStart = false;
 	var brushColor = "white";
 	var brushSize = 2;
+	
 	
 		function draw(currentX, currentY){
 			ctx.lineWidth = brushSize;
@@ -74,14 +75,26 @@
 		}
 		
 		function backColorPicker(color){
-			document.getElementById("canvas").style.backgroundColor = color;
+			document.getElementById("cnv").style.backgroundColor = color;
+			if(color=='white'){
+				brushColor='black';
+			}
+			else if(color=='black'){
+				brushColor='white';
+			}
+			else if(color=='gray'){
+				brushColor='white';
+			}
 			console.log("Background Color is : "+color);
 		}
 		
 		function eraserPicker(size){
+			brushColor = document.getElementById("cnv").style.backgroundColor;
+			if(brushColor==''){
+				brushColor="black";
+			}
 			brushSize = size;
-			brushColor = document.getElementById("canvas").style.backgroundColor;
-			console.log("Brush Size is : "+size);
+			console.log("eraser color is : " + brushColor);
 		}
 		
 		function brushPicker(size){

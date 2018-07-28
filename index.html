@@ -23,13 +23,13 @@
 </head>
 <body>
 
-<canvas id="canvas"></canvas>
+<canvas id="cnv"></canvas>
 <div class="container">
 
 <div class="row text-center">
 
 <div class="col-xs-3">
-<button  id="eraserButton" class="btn btn-sm" data-toggle="modal" data-target="#eraserPicker" style="background-color:transparent;border-color:transparent;"><i class="fa fa-eraser" style="color:white;font-size:20px;"></i></button>
+<button  id="shareButton" class="btn btn-sm" data-toggle="modal" data-target="#sharePicker" style="background-color:transparent;border-color:transparent;"><i class="fa fa-bullhorn" style="color:white;font-size:20px;"></i></button>
 </div>
 
 <div class="col-xs-3">
@@ -46,6 +46,7 @@
 
 
 </div>
+<!--
 <hr>
 
 <div class="row text-center">
@@ -63,7 +64,7 @@
 <a href="https://kaushikdev.github.io/portfolio/" target="_blank" style="color:white;font-size:15px;"><i class="fa fa-copyright" aria-hidden="true" style="color:white;font-size:15px;"></i>KaushikCodeArts 2018</a>
 </div>
 </div>
-
+-->
 </div>
 
         
@@ -157,6 +158,15 @@
 <button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(6)"><i class="fa fa-paint-brush fa-3x"></i></button>
 <button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(10)"><i class="fa fa-paint-brush fa-4x"></i></button>
 <button style="background-color:transparent;border-color:transparent;color:black" onclick="brushPicker(15)"><i class="fa fa-paint-brush fa-5x"></i></button>
+<br>
+<br>
+<p>Erasers : </p>
+
+
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="eraserPicker(2)"><i class="fa fa-eraser fa-2x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="eraserPicker(6)"><i class="fa fa-eraser fa-3x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="eraserPicker(10)"><i class="fa fa-eraser fa-4x"></i></button>
+<button style="background-color:transparent;border-color:transparent;color:black" onclick="eraserPicker(15)"><i class="fa fa-eraser fa-5x"></i></button>
         </div>
 		</div>
         <div class="modal-footer">
@@ -167,31 +177,38 @@
     </div>
   </div>
     
-<!-- Eraser Modal -->
-  <div class="modal fade" id="eraserPicker" role="dialog">
+<!-- Social Modal -->
+  <div class="modal fade" id="sharePicker" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
+		
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-		  <h4 class="modal-title">Click any Eraser to choose : </h4>
+		  <h4 class="modal-title">Share the app : </h4>
         </div>
-        <div class="modal-body">
+   
+   <div class="modal-body">
           
 		  
-		  <div style="text-align: center;">
-<p>Erasers : </p>
 
-
-<button style="background-color:transparent;border-color:transparent;color:black" onclick="eraserPicker(2)"><i class="fa fa-eraser fa-2x"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:black" onclick="eraserPicker(6)"><i class="fa fa-eraser fa-3x"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:black" onclick="eraserPicker(10)"><i class="fa fa-eraser fa-4x"></i></button>
-<button style="background-color:transparent;border-color:transparent;color:black" onclick="eraserPicker(15)"><i class="fa fa-eraser fa-5x"></i></button>
+<div style="text-align: center;">
+		<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/DrawingBoard" target="_blank"><i class="fa fa-facebook fa-4x" style="color:black;"></i></a>
+	 
+         <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="whatsapp://send?text=https://KaushikDev.github.io/DrawingBoard"><i class="fa fa-whatsapp fa-4x" style="color:black;"></i></a>
+		 
+         <a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/DrawingBoard" target="_blank"><i class="fa fa-twitter fa-4x"  style="color:black;font-style:bold;"></i></a>
 
         </div>
+		
+				  <div style="text-align: center;">
+<a href="https://kaushikdev.github.io/portfolio/" target="_blank" style="color:black;font-size:25px;"><i class="fa fa-copyright" aria-hidden="true" style="color:black;font-size:20px;"></i>KaushikCodeArts 2018</a>
+</div>
+		
 		</div>
-        <div class="modal-footer">
+     
+	 <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
         </div> 
       </div>
