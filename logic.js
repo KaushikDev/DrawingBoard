@@ -116,11 +116,13 @@
 		
 		 function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
-		document.addEventListener("backbutton", onBackKeyDown, false);
+		
         }
  
- 
- function onBackKeyDown() {
-    confirm("Hey!! You really wanna leave??");
- 
- }
+		function onDeviceReady(){
+		document.addEventListener("backbutton", onBackKeyDown, false);
+			
+		}
+		function onBackKeyDown() {
+			confirm("Hey!! You really wanna leave??");
+ 		}
