@@ -124,5 +124,7 @@
 			
 		}
 		function onBackKeyDown() {
-			confirm("Hey!! You really wanna leave??");
+			if(confirm("Hey!! You really wanna leave??")){
+				navigator.app.exitApp();
+			}
  		}
