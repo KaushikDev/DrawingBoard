@@ -1,4 +1,5 @@
-
+    
+	
     var canvas = document.getElementById("cnv");
 	var ctx = canvas.getContext("2d");
 	
@@ -115,7 +116,11 @@
 		
 		 function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
-    }
+		document.addEventListener("backbutton", onBackKeyDown, false);
+        }
  
+ 
+ function onBackKeyDown() {
+    confirm("Hey!! You really wanna leave??");
  
  
