@@ -112,6 +112,18 @@
 			
 			link.href = canvas.toDataURL();
 			link.download = "KaushikCodeArt_image.png";
+		/*	
+			 window.Base64ImageSaverPlugin.saveImageDataToLibrary(
+        function(msg){
+            console.log(msg);
+        },
+        function(err){
+            console.log(err);
+        },
+        BASE64DATA
+    );
+	
+	*/
 		}
 		
 		 function onLoad() {
@@ -121,7 +133,7 @@
  
 		function onDeviceReady(){
 		document.addEventListener("backbutton", onBackKeyDown, false);
-			
+		document.addEventListener("savebutton", save, false);
 		}
 		function onBackKeyDown() {
 			if(confirm("Hey!! You really wanna leave??")){

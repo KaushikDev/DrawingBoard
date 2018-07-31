@@ -1,4 +1,4 @@
-1. Add Splash screens.
+1. Add Splash screens. DONE
 2. Make save button function.
 3. Make device back button exit app confirmation, work. DONE
-4. Add app icon.
+4. Add app icon. DONE
