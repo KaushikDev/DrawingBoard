@@ -4,7 +4,7 @@
 	var ctx = canvas.getContext("2d");
 	
 	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight * 0.90;
+	canvas.height = window.innerHeight * 0.94;
 	
 	var link = document.getElementById("saveButton");
 	

@@ -12,11 +12,11 @@
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	
 	  <style>
-		body { padding: 0; margin: 0; background:#BE5843;}
+		body { padding: 0; margin: 0; background:#0c7f8e;}
     	canvas { background: black ; display: block; margin: 0 auto; }
-		#eraserButton,#styleButton,#cleanButton,#saveButton {
-		border-radius:5px;width:auto;
-		}
+		#shareButton, #styleButton , #cleanButton , #saveButton{background-color:transparent;border-color:transparent;height:auto;padding:0;}
+		.col-xs-3{padding: 0; margin: 0;}
+		
     </style>
 </head>
 <body onload="onLoad()";>
@@ -30,20 +30,21 @@
 		<div class="row text-center">
 
 			<div class="col-xs-3">
-				<button  id="shareButton" class="btn btn-md" data-toggle="modal" data-target="#sharePicker" style="background-color:transparent;border-color:transparent;"><i class="fa fa-share-alt" style="color:white;"></i></button>
+				<a  id="shareButton" class="btn btn-default" data-toggle="modal" data-target="#sharePicker" ><i class="fa fa-share-alt" style="color:white;"></i></a>
 			</div>
 
 			<div class="col-xs-3">
-				<button  id="styleButton" class="btn btn-default" data-toggle="modal" data-target="#stylePicker" style="background-color:transparent;border-color:transparent;"><i class="fa fa-paint-brush" style="color:white;"></i></button>
+				<a  id="styleButton" class="btn btn-default" data-toggle="modal" data-target="#stylePicker" ><i class="fa fa-paint-brush" style="color:white;"></i></a>
 			</div>
 
 			<div class="col-xs-3">
-				<button class="btn btn-default" id="cleanButton" onclick="clean()" style="background-color:transparent;border-color:transparent;"><i class="fa fa-trash" style="color:white;"></i></button>
+				<a class="btn btn-default" id="cleanButton" onclick="clean()" ><i class="fa fa-trash" style="color:white;"></i></a>
 			</div>
 
 			<div class="col-xs-3">
-				<a class="btn btn-default" href="" id="saveButton" onclick="save()" style="background-color:transparent;border-color:transparent;"><i class="fa fa-floppy-o" style="color:white;"></i></a>
+				<a class="btn btn-default" id="saveButton" onclick="save()"><i class="fa fa-floppy-o" style="color:white;"></i></a>
 			</div>
+			
 
 
 		</div>
@@ -151,7 +152,7 @@
         </div>
 		</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+          <button class="btn btn-default" data-dismiss="modal">Done</button>
         </div> 
       </div>
       
@@ -174,13 +175,16 @@
           
 		  
 
-<div style="text-align: center;">
+<div class="row text-center">
+<div class="col-xs-4">
 		<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/DrawingBoard" target="_blank"><i class="fa fa-facebook fa-4x" style="color:black;"></i></a>
-	 
+	 </div>
+	 <div class="col-xs-4">
          <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;font-style:bold;" href="whatsapp://send?text=https://KaushikDev.github.io/DrawingBoard"><i class="fa fa-whatsapp fa-4x" style="color:black;"></i></a>
-		 
+		 </div>
+		 <div class="col-xs-4">
          <a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/DrawingBoard" target="_blank"><i class="fa fa-twitter fa-4x"  style="color:black;font-style:bold;"></i></a>
-
+</div>
         </div>
 		<br>
 		<br>
@@ -194,7 +198,7 @@
 		</div>
      
 	 <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+          <button class="btn btn-default" data-dismiss="modal">Done</button>
         </div> 
       </div>
       
