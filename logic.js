@@ -133,7 +133,7 @@
  
 		function onDeviceReady(){
 		document.addEventListener("backbutton", onBackKeyDown, false);
-		document.addEventListener("savebutton", save, false);
+		document.addEventListener("saveButton", save, false);
 		}
 		function onBackKeyDown() {
 			if(confirm("Hey!! You really wanna leave??")){

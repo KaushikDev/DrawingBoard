@@ -77,7 +77,6 @@
     -->
 <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
-<preference name="AndroidExtraFilesystems" value="sdcard,cache" /> 
 	  <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
   
 <!--   <icon src="ldpi.png" platform="android" qualifier="ldpi" /> -->
