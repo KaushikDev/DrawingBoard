@@ -44,7 +44,10 @@
 	    <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
     <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
     <plugin name="cordova-plugin-whitelist" version="1" />
-	<plugin name="cordova-base64-image-saver" version="0.6.0" />
+<!--	<plugin name="cordova-base64-image-saver" version="0.6.0" /> -->
+	
+	<plugin name="cordova-save-image-gallery" version="0.0.26" />
+	
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--
         <plugin name="com.phonegap.plugins.barcodescanner" />

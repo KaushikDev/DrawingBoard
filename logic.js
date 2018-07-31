@@ -77,8 +77,10 @@
 		
 		function backColorPicker(color){
 			document.getElementById("cnv").style.backgroundColor = color;
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			if(color=='white'){
 				brushColor='black';
+				
 			}
 			else if(color=='black'){
 				brushColor='white';
@@ -109,21 +111,21 @@
 		}
 		
 		function save(){
-			
-			link.href = canvas.toDataURL();
+			var tmp = canvas.toDataURL();
+			console.log(tmp);
+			link.href = tmp;
 			link.download = "KaushikCodeArt_image.png";
-		/*	
-			 window.Base64ImageSaverPlugin.saveImageDataToLibrary(
-        function(msg){
-            console.log(msg);
+			//link.href = canvas.toDataURL();
+			//link.download = "KaushikCodeArt_image.png";
+		var params = {data: base64String, prefix: 'myPrefix_', format: 'JPG', quality: 80, mediaScanner: true};
+    window.imageSaver.saveBase64Image(params,
+        function (filePath) {
+          console.log('File saved on ' + filePath);
         },
-        function(err){
-            console.log(err);
-        },
-        BASE64DATA
-    );
-	
-	*/
+        function (msg) {
+          console.error(msg);
+        }
+      );
 		}
 		
 		 function onLoad() {
