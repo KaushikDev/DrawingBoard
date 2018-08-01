@@ -16,7 +16,7 @@
 	var flagTouchStart = false;
 	var brushColor = "white";
 	var brushSize = 2;
-	
+	var devicePlatform;
 	
 		function draw(currentX, currentY){
 			ctx.lineWidth = brushSize;
@@ -111,14 +111,16 @@
 		}
 		
 		function save(){
-			var tmp = canvas.toDataURL();
-			console.log(tmp);
-			link.href = tmp;
+			
+			//console.log(devicePlatform);
+			var imgStringURL = canvas.toDataURL();
+			console.log(imgStringURL);
+			link.href = imgStringURL;
 			link.download = "KaushikCodeArt_image.png";
 			//link.href = canvas.toDataURL();
 			//link.download = "KaushikCodeArt_image.png";
-		var params = {data: base64String, prefix: 'myPrefix_', format: 'JPG', quality: 80, mediaScanner: true};
-    window.imageSaver.saveBase64Image(params,
+		var params = {data: imgStringURL, prefix: 'KaushikCodeArts_', format: 'JPG', quality: 80, mediaScanner: true};
+		window.imageSaver.saveBase64Image(params,
         function (filePath) {
           console.log('File saved on ' + filePath);
         },
@@ -136,6 +138,8 @@
 		function onDeviceReady(){
 		document.addEventListener("backbutton", onBackKeyDown, false);
 		document.addEventListener("saveButton", save, false);
+		devicePlatform = device.platform;
+		console.log(devicePlatform);
 		}
 		function onBackKeyDown() {
 			if(confirm("Hey!! You really wanna leave??")){
