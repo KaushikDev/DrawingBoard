@@ -16,6 +16,7 @@
 	var flagTouchStart = false;
 	//var brushColor = "white";
 	var brushColor = "black";
+	var backColor;
 	var brushSize = 2;
 	var devicePlatform;
 	
@@ -97,8 +98,8 @@
 			// Restore the original context state from `context.save()`
 			ctx.restore();
 		
-			
-			//document.getElementById("cnv").style.backgroundColor = color;
+			//saving background color for later use:
+			backColor = color;
 			//	ctx.clearRect(0, 0, canvas.width, canvas.height);
 			if(color=='white'){
 				brushColor='black';
@@ -128,8 +129,10 @@
 		}
 		
 		function clean(){
+			//ctx.fillStyle = backColor;
 			ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
-			
+			ctx.fillStyle = backColor;
+			ctx.fillRect(0,0,this.canvas.width,this.canvas.height);
 		}
 		
 		function save(){
