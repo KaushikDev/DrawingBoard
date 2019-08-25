@@ -4,7 +4,7 @@
 	var ctx = canvas.getContext("2d");
 	
 	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight * 0.94;
+	canvas.height = window.innerHeight * 0.90;
 	
 	var link = document.getElementById("saveButton");
 	
@@ -14,7 +14,8 @@
 	var currentY;
 	var flagMouseDown = false;
 	var flagTouchStart = false;
-	var brushColor = "white";
+	//var brushColor = "white";
+	var brushColor = "black";
 	var brushSize = 2;
 	var devicePlatform;
 	
@@ -76,8 +77,29 @@
 		}
 		
 		function backColorPicker(color){
-			document.getElementById("cnv").style.backgroundColor = color;
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.save();
+			// Normally when you draw on a canvas, the new drawing
+			// covers up any previous drawing it overlaps. This is
+			// because the default `globalCompositeOperation` is
+			// 'source-over'. By changing this to 'destination-over',
+			// our new drawing goes behind the existing drawing. This
+			// is desirable so we can fill the background, while leaving
+			// the chart and any other existing drawing intact.
+			// Learn more about `globalCompositeOperation` here:
+			// https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
+			ctx.globalCompositeOperation = 'copy';
+		  
+			// Fill in the background. We do this by drawing a rectangle
+			// filling the entire canvas, using the provided color.
+			ctx.fillStyle = color;
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+		  
+			// Restore the original context state from `context.save()`
+			ctx.restore();
+		
+			
+			//document.getElementById("cnv").style.backgroundColor = color;
+			//	ctx.clearRect(0, 0, canvas.width, canvas.height);
 			if(color=='white'){
 				brushColor='black';
 				
@@ -119,8 +141,8 @@
 			link.download = "KaushikCodeArt_image.png";
 			//link.href = canvas.toDataURL();
 			//link.download = "KaushikCodeArt_image.png";
-		var params = {data: imgStringURL, prefix: 'KaushikCodeArts_', format: 'JPG', quality: 80, mediaScanner: true};
-		window.imageSaver.saveBase64Image(params,
+		var params = {data: imgStringURL, prefix: 'KaushikCodeArts_', format: 'PNG', quality: 80, mediaScanner: true};
+		var test = window.imageSaver.saveBase64Image(params,
         function (filePath) {
           console.log('File saved on ' + filePath);
         },

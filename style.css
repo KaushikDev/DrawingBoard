@@ -1,0 +1,40 @@
+* {
+     margin:0; 
+     padding:0; 
+    }
+
+html, body { 
+    width:100%; 
+    height:100%; 
+    background:#0c7f8e;
+} 
+
+.container{
+height: auto;
+display: block;
+}
+canvas { 
+    display:block; 
+    /* background: black; */
+    background: white;
+} 
+
+.footer{
+    background-color: transparent;
+    border-color: transparent;
+    height: auto;
+    padding: 2px;
+    margin: 2px;
+}
+
+.footer:hover{
+    background-color: transparent;
+   
+}
+
+
+.footer>.fa{
+    color:white;
+    font-size:8vh;
+    text-decoration: none;
+}
