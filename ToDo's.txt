@@ -1,6 +1,0 @@
-1. Add Splash screens. DONE
-2. Make save button function.
-3. Make device back button exit app confirmation, work. DONE
-4. Add app icon. DONE
-5. When image is saved, background seems to be transparent and eraser marks can be seen.
-6. 

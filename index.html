@@ -1,343 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sketch</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./assets/font-awesome/css/all.css" />
+  </head>
+  <body>
+    <canvas></canvas>
+    <div class="top-menu">
+      <div class="color-picker">
+        <input
+          class="color-picker-elements"
+          type="color"
+          id="canvas-color"
+          name="background"
+          value="#0095dd"
+        />
+        <label class="color-picker-elements" for="background">Canvas</label>
+      </div>
+      <div class="color-picker">
+        <input
+          class="color-picker-elements"
+          type="color"
+          id="brush-color"
+          name="brush"
+          value="#ffffff"
+        />
+        <label class="color-picker-elements" for="brush">Brush</label>
+      </div>
+      <div class="range-picker">
+        <input
+          class="range-picker-elements"
+          type="range"
+          id="brush-size"
+          name="size"
+          value="0.1"
+          min="0.1"
+          max="50"
+          step="0.1"
+          list="tickmarks"
+        />
+        <label class="range-picker-elements" for="size">Size</label>
+      </div>
+    </div>
+    <div class="side-menu">
+      <button class="trash-btn"><i class="fas fa-trash"></i></button>
+      <button class="brush-btn"><i class="fas fa-pen"></i></button>
+      <button class="eraser-btn"><i class="fas fa-eraser"></i></button>
+      <a class="download-btn"><i class="fas fa-download"></i></a>
+      <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+    </div>
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
+    <button class="settings"><i class="fas fa-cog"></i></button>
 
-	<title>Sketch</title>
-	<link rel="stylesheet" href="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
-	<script src="jquery-3.2.1.min.js"></script>
-	<script src="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-	<link rel="stylesheet" href="style.css">
+    <div class="share-app">
+      <div class="share-app-title">
+        <h1>Happy Sketching!</h1>
+      </div>
 
-</head>
+      <div class="share-app-social">
+        <a
+          href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/sketch"
+          target="_blank"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
 
-<body onload="onLoad()" ;>
+        <a href="whatsapp://send?text=https://KaushikDev.github.io/sketch"
+          ><i class="fab fa-whatsapp"></i
+        ></a>
 
-	<!-- <div class="container">
-			<div class="row text-center">
-				<div class="col-xs-6">
-						<a href="#"
-						style="color:white;font-size:auto;">&copy; Copyright 2019</a>
-				</div>
-				<div class="col-xs-6">
-						<a href="https://kaushikdev.github.io/portfolio/" target="_blank"
-						style="color:white;font-size:auto;">Developer's Portfolio</a>
-				</div>
-			</div>
-	</div> -->
+        <a
+          href="https://twitter.com/home?status=https://KaushikDev.github.io/sketch"
+          target="_blank"
+          ><i class="fab fa-twitter"></i
+        ></a>
+      </div>
 
-	<canvas id="cnv"></canvas>
+      <div class="share-app-developer-info">
+        <p>&copy;<a href="https://kaushikdev.com" target="_blank">Piyush Kaushik</a>
+          2020. All rights reserved.
+        </p>
+      </div>
+    </div>
 
-	<div class="container-fluid">
-
-		<div class="row text-center">
-
-
-			<div class="col-xs-3">
-				<a id="shareButton" class="btn btn-default footer" data-toggle="modal" data-target="#sharePicker">
-					<i class="fa fa-share-alt"></i>
-				</a>
-			</div>
-			<div class="col-xs-3">
-				<a id="styleButton" class="btn btn-default footer" data-toggle="modal" data-target="#stylePicker">
-					<i class="fa fa-paint-brush"></i>
-				</a>
-			</div>
-			<div class="col-xs-3">
-				<a id="cleanButton" class="btn btn-default footer" onclick="clean()">
-					<i class="fa fa-trash"></i>
-				</a>
-			</div>
-			<div class="col-xs-3">
-				<a id="saveButton" class="btn btn-default footer" onclick="save()">
-					<i class="fa fa-floppy-o"></i>
-				</a>
-			</div>
-
-
-
-		</div>
-	</div>
-
-	<!-- Style Modal -->
-	<div class="modal fade" id="stylePicker" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Customise your Canvas : </h4>
-				</div>
-				<div class="modal-body">
-
-					<div style="text-align: center;">
-						<p>Brush Colors : </p>
-						
-						<button class="btn btn-sm"
-							style="background-color:violet;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('violet')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:indigo;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('indigo')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:blue;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('blue')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:white;border-radius:50%;width:30px;height:30px;border-color:black;"
-							onclick="colorPicker('white')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:yellow;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('yellow')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:orange;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('orange')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:red;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('red')"></button>
-
-						<br>
-
-						<button class="btn btn-sm"
-							style="background-color:Purple;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Purple')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:BlueViolet;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('BlueViolet')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:Darkblue;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Darkblue')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:DarkGreen;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('DarkGreen')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:GoldenRod;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('GoldenRod')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:OrangeRed;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('OrangeRed')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:DarkRed;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('DarkRed')"></button>
-
-						<br>
-
-						<button class="btn btn-sm"
-							style="background-color:LightPink;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('LightPink')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:MediumPurple;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('MediumPurple')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:LightSkyBlue;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('LightSkyBlue')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:LimeGreen;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('LimeGreen')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:Khaki;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Khaki')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:DarkOrange;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('DarkOrange')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:Brown;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Brown')"></button>
-
-						<br>
-
-						<button class="btn btn-sm"
-							style="background-color:Black;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Black')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:Magenta;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Magenta')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:Turquoise;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Turquoise')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:Lime;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Lime')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:Gold;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Gold')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:Coral;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Coral')"></button>
-
-						<button class="btn btn-sm"
-							style="background-color:Gray;border-radius:50%;width:30px;height:30px;"
-							onclick="colorPicker('Gray')"></button>
-						<br>
-						<br>
-						<p>Background Colors : </p>
-						<button class="btn btn-sm"
-							style="background-color:white;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('white')"></button>
-						<button class="btn btn-sm"
-							style="background-color:Gray;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('Gray')"></button>
-						<button class="btn btn-sm"
-							style="background-color:black;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('black')"></button>
-						<button class="btn btn-sm"
-							style="background-color:lightgray;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('lightgray')"></button>
-						<br>
-						<button class="btn btn-sm"
-							style="background-color:orange;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('orange')"></button>
-						<button class="btn btn-sm"
-							style="background-color:yellow;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('yellow')"></button>
-						<button class="btn btn-sm"
-							style="background-color:red;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('red')"></button>
-						<button class="btn btn-sm"
-							style="background-color:lawngreen;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('lawngreen')"></button>
-						<br>
-						<button class="btn btn-sm"
-							style="background-color:brown;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('brown')"></button>
-						<button class="btn btn-sm"
-							style="background-color:LightSkyBlue;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('LightSkyBlue')"></button>
-						<button class="btn btn-sm"
-							style="background-color:LightPink;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('LightPink')"></button>
-						<button class="btn btn-sm"
-							style="background-color:khaki;border-radius:50%;width:50px;height:50px;border-color:black;"
-							onclick="backColorPicker('khaki')"></button>
-						<br>
-						<br>
-						<p>Brush Sizes : </p>
-						<button style="background-color:transparent;border-color:transparent;color:black"
-							onclick="brushPicker(2)"><i class="fa fa-paint-brush"></i></button>
-						<button style="background-color:transparent;border-color:transparent;color:black"
-							onclick="brushPicker(4)"><i class="fa fa-paint-brush fa-2x"></i></button>
-						<button style="background-color:transparent;border-color:transparent;color:black"
-							onclick="brushPicker(6)"><i class="fa fa-paint-brush fa-3x"></i></button>
-						<button style="background-color:transparent;border-color:transparent;color:black"
-							onclick="brushPicker(10)"><i class="fa fa-paint-brush fa-4x"></i></button>
-						<button style="background-color:transparent;border-color:transparent;color:black"
-							onclick="brushPicker(15)"><i class="fa fa-paint-brush fa-5x"></i></button>
-						<br>
-						<br>
-						<p>Erasers : </p>
-
-						<button style="background-color:transparent;border-color:transparent;color:black"
-							onclick="eraserPicker(2)"><i class="fa fa-eraser fa-2x"></i></button>
-						<button style="background-color:transparent;border-color:transparent;color:black"
-							onclick="eraserPicker(6)"><i class="fa fa-eraser fa-3x"></i></button>
-						<button style="background-color:transparent;border-color:transparent;color:black"
-							onclick="eraserPicker(10)"><i class="fa fa-eraser fa-4x"></i></button>
-						<button style="background-color:transparent;border-color:transparent;color:black"
-							onclick="eraserPicker(15)"><i class="fa fa-eraser fa-5x"></i></button>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-default" data-dismiss="modal">Done</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<!-- Social Modal -->
-	<div class="modal fade" id="sharePicker" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Share the app : </h4>
-				</div>
-
-				<div class="modal-body">
-
-
-
-					<div class="row text-center">
-						<div class="col-xs-3">
-							<a id="fb" class="btn btn-default text-center"
-								style="background-color:transparent;border-color:transparent;font-style:bold;"
-								href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/sketch"
-								target="_blank"><i class="fa fa-facebook fa-4x" style="color:gray;"></i></a>
-						</div>
-						<div class="col-xs-3">
-							<a id="whatsapp" class="btn btn-default text-center"
-								style="background-color:transparent;border-color:transparent;font-style:bold;"
-								href="whatsapp://send?text=https://KaushikDev.github.io/sketch"><i
-									class="fa fa-whatsapp fa-4x" style="color:gray;"></i></a>
-						</div>
-						<div class="col-xs-3">
-							<a id="whatsapp" class="btn btn-default text-center"
-								style="background-color:transparent;border-color:transparent;font-style:bold;"
-								href="https://www.linkedin.com/shareArticle?mini=true&url=https://KaushikDev.github.io/sketch&title=Sketch App&summary=Checkout this simple sketch app by kaushikDev&source=Github"
-								target="_blank"><i class="fa fa-linkedin fa-4x" style="color:gray;"></i></a>
-						</div>
-						<div class="col-xs-3">
-							<a id="tweet" class="btn btn-default text-center"
-								style="background-color:transparent;border-color:transparent;"
-								href="https://twitter.com/home?status=https://KaushikDev.github.io/sketch"
-								target="_blank"><i class="fa fa-twitter fa-4x"
-									style="color:gray;font-style:bold;"></i></a>
-						</div>
-					</div>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<div style="text-align: center;">
-						<a href="https://KaushikDev.github.io/portfolio" target="_blank"
-							style="color:black;font-size:15px;"><i class="fa fa-github" aria-hidden="true"
-								style="color:black;font-size:15px;"></i> Developer's Portfolio</a>
-					</div>
-
-				</div>
-
-				<div class="modal-footer">
-					<button class="btn btn-default" data-dismiss="modal">Done</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<script src="logic.js">
-	</script>
-
-</body>
-
+    <script src="./main.js"></script>
+  </body>
 </html>
