@@ -177,7 +177,9 @@ const downloadImg = () => {
   brushBtn.addEventListener("click", repaint);
   downloadBtn.addEventListener("click", downloadImg);
   brushSizeInput.addEventListener("click", changeBrushSize);
+  brushColorInput.addEventListener("input", changeBrushColor);
   brushColorInput.addEventListener("change", changeBrushColor);
+  canvasColorInput.addEventListener("input", changeCanvasColor);
   canvasColorInput.addEventListener("change", changeCanvasColor);
   window.addEventListener("resize", resizeCanvas);
 });

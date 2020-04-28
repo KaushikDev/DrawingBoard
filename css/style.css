@@ -11,6 +11,11 @@
   font-family: "Roboto", sans-serif;
 }
 
+html,
+body {
+  overscroll-behavior-y: contain;
+}
+
 body {
   width: 100vw;
   height: 100vh;
